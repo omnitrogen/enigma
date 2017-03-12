@@ -23,7 +23,6 @@ class ensembleRotorReflector:
 		'''permet d'inverser les éléments... peu utile pour le moment'''
 		self.rotor1.reverse()
 
-<<<<<<< HEAD
 	def rotationRotor(self, test):
 		'''permet d'effectuer une rotation du rotor... très utile'''
 		self.test.append(self.test[0])
@@ -71,9 +70,8 @@ while continuer:
 		continuer = False
 	else:
 		pass
+		
 
-
->>>>>>> 520dc09c6c21cb170270bc6003193c6b7597962f
 '''
 a = rotor()
 print(a)
