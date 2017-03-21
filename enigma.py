@@ -1,4 +1,4 @@
-#implementation de la machine enigma en python
+#implementation de la machine enigma en python, test orienté objet
 
 #import math
 
