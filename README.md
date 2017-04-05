@@ -13,3 +13,5 @@ You can find the console application by executing the <code>enigma.py</code> fil
 Or you can find the GUI version in the gui folder :tada:
 
 Have fun! :panda_face:
+
+(use it as you want, no license and other stuff...)
