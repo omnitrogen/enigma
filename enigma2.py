@@ -24,7 +24,7 @@ while estValide(messageList) == False or len(messageList) <= 0:
 	try:
 		message = str(input("Write the message you want to (de)crypt: \n"))
 		messageList = list(message)
-	except ValueError:
+	except:
 		print("You must only enter letter without special characters!")
 s = []
 for i in range(0,len(messageList),1):
@@ -41,14 +41,13 @@ for i in range(0,len(messageList),1):
 		f = rotor3[e-1]
 		g = alphabetDict[f]
 		h = reflector[g-1]
-
-		i = rotor3.index(h)
-		j = alphabetList[i]
-		k = rotor2.index(j)
-		l = alphabetList[k]
-		m = rotor1.index(l)
-		n = alphabetList[m]
-		s.append(n)
+		j = rotor3.index(h)
+		k = alphabetList[j]
+		l = rotor2.index(k)
+		m = alphabetList[l]
+		n = rotor1.index(m)
+		o = alphabetList[n]
+		s.append(o)
 	if (i+1)%1 == 0:
 		rotationRotor(rotor1)
 	if (i+1)%26 == 0:
@@ -56,3 +55,4 @@ for i in range(0,len(messageList),1):
 	if (i+1)%676 == 0:
 		rotationRotor(rotor3)
 print("(de)crypted message: ",''.join(s))
+
