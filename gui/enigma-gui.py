@@ -2,19 +2,14 @@
 
 #import_librairies
 from tkinter import *
-from tkinter.messagebox import *
-from PIL import Image, ImageTk  
 
 #window
 fenetre = Tk()
 fenetre.title("The Enigma Machine")
 
 #enigma_image
-image = Image.open("enigma.jpg")
-photo = ImageTk.PhotoImage(image)
-label = Label(image=photo)
-label.image = photo
-label.pack(padx= 30, pady= 30)
+image = PhotoImage(file="enigma.gif")
+Label(fenetre, image=image).pack(padx=20, pady=20, side=TOP)
 
 #frame_to_set_rotor_position
 frame1 = Frame(fenetre, borderwidth=2, relief=FLAT)
