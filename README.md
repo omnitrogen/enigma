@@ -1,7 +1,7 @@
 # enigma-tipe
 enigma machine python
 
-![alt tag](https://de.wikipedia.org/wiki/Datei:Enigma-logo.svg)
+![alt tag](http://pasteboard.co/qgM7pW8M.jpg)
 
 Requirements:
 
