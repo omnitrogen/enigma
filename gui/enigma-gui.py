@@ -1,25 +1,24 @@
-#enigma-gui
+#enigma-graphical-user-interface-version
 
+#import_librairies
 from tkinter import *
 from tkinter.messagebox import *
 from PIL import Image, ImageTk  
 
-#debut_fenetre
+#window
 fenetre = Tk()
 fenetre.title("The Enigma Machine")
 
-#image_enigma
+#enigma_image
 image = Image.open("enigma.jpg")
 photo = ImageTk.PhotoImage(image)
 label = Label(image=photo)
 label.image = photo
 label.pack(padx= 30, pady= 30)
 
-#frame_rotor_position
-
+#frame_to_set_rotor_position
 frame1 = Frame(fenetre, borderwidth=2, relief=FLAT)
 frame1.pack(side=TOP, padx=30, pady=30, )
-#Label(frame1, text="frame 1").pack(padx=10, pady=10)
 
 def update1(x):
     x = int(x)
@@ -58,7 +57,7 @@ lab2.grid(row=2, column=1)
 lab3 = Label(frame1)
 lab3.grid(row=2, column=2)
 
-#fonction_code
+#function_code
 def code(event=None):
 	a = int(var1.get())
 	b = int(var2.get())
@@ -118,25 +117,24 @@ def code(event=None):
 	value.set(''.join(s))
 	entree = Entry(fenetre, textvariable=value, width=50)
 	entree.pack()
-    #resultat = Label(fenetre, state='normal', text = ''.join(s))
-    #resultat.pack(padx=10, pady=10)
-#entree
+    
+#text_entry
 entryvar = StringVar()
 entry = Entry(fenetre, textvariable = entryvar, width=50)
 entry.focus_set()
 entry.bind("<Return>", code)
 entry.pack()
 
+#button_to_(de)code
 b = Button(fenetre, text="(de)code", width=10, command=(code))
 b.pack()
 
-#copyright
-copyright = Label(fenetre, text = "coded with <3 by omnitrogen")
-copyright.pack(side = BOTTOM, padx=10, pady=10)
+#credits
+credits = Label(fenetre, text = "coded with <3 by omnitrogen")
+credits.pack(side = BOTTOM, padx=10, pady=10)
 
-
-#boutton_quit
-bouttonTest = Button(fenetre, text="quit", width=10, command=fenetre.quit)
-bouttonTest.pack(side = BOTTOM)
+#quit_button
+quitButton = Button(fenetre, text="quit", width=10, command=fenetre.quit)
+quitButton.pack(side = BOTTOM)
 
 mainloop()
