@@ -60,9 +60,6 @@ lab3.grid(row=2, column=2)
 
 #fonction_code
 def code(event=None):
-	'''
-	essayer de get() les trois valeurs des rotations des rotors, puis faire les rotaion nécessaires.
-	'''
 	a = var1.get()
 	a = int(a)
 	b = var2.get()
