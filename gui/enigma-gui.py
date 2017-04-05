@@ -60,12 +60,9 @@ lab3.grid(row=2, column=2)
 
 #fonction_code
 def code(event=None):
-	a = var1.get()
-	a = int(a)
-	b = var2.get()
-	b = int(b)
-	c = var3.get()
-	c = int(c)
+	a = int(var1.get())
+	b = int(var2.get())
+	c = int(var3.get())
 	def rotationRotor(liste1):
 		liste1.append(liste1[0])
 		del liste1[0]
