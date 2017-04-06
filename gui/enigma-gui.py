@@ -73,6 +73,7 @@ def code(event=None):
 	rotor2 = ['N','T','Z','P','S','F','B','O','K','M','W','R','C','J','D','I','V','L','A','E','Y','U','X','H','G','Q']
 	rotor3 = ['J','V','I','U','B','H','T','C','D','Y','A','K','E','Q','Z','P','O','S','G','X','N','R','M','W','F','L']
 	reflector = ['Y', 'R', 'U', 'H', 'Q', 'S', 'L', 'D', 'P', 'X', 'N', 'G', 'O', 'K', 'M', 'I', 'E', 'B', 'F', 'Z', 'C', 'W', 'V', 'J', 'A', 'T']
+	
 	for loop1 in range(a):
 		rotationRotor(rotor1)
 	for loop2 in range(b):
@@ -80,38 +81,44 @@ def code(event=None):
 	for loop3 in range(c):
 		rotationRotor(rotor3)
 	sortieListe = list(sortie)
-	s = []
-	for i in range(0,len(sortieListe),1):
-		if sortieListe[i] == ' ':
-			s.append(' ')
-		elif sortieListe[i] == "'":
-			s.append("'")
-		else:
-			a = alphabetDict[sortieListe[i].upper()]
-			b = rotor1[a-1]
-			c = alphabetDict[b]
-			d = rotor2[c-1]
-			e = alphabetDict[d]
-			f = rotor3[e-1]
-			g = alphabetDict[f]
-			h = reflector[g-1]
-			j = rotor3.index(h)
-			k = alphabetList[j]
-			l = rotor2.index(k)
-			m = alphabetList[l]
-			n = rotor1.index(m)
-			o = alphabetList[n]
-			s.append(o)
-		if (i+1)%1 == 0:
-			rotationRotor(rotor1)
-		if (i+1)%26 == 0:
-			rotationRotor(rotor2)
-		if (i+1)%676 == 0:
-			rotationRotor(rotor3)
-	value = StringVar() 
-	value.set(''.join(s))
-	entree = Entry(fenetre, textvariable=value, width=50)
-	entree.pack()
+	if not estValide(sortieListe):
+		value = StringVar() 
+		value.set('Please enter only letters and spaces!')
+		entree = Entry(fenetre, textvariable=value, width=50, highlightbackground='red', highlightthickness=2, relief=FLAT)
+		entree.pack()
+	else:
+		s = []
+		for i in range(0,len(sortieListe),1):
+			if sortieListe[i] == ' ':
+				s.append(' ')
+			elif sortieListe[i] == "'":
+				s.append("'")
+			else:
+				a = alphabetDict[sortieListe[i].upper()]
+				b = rotor1[a-1]
+				c = alphabetDict[b]
+				d = rotor2[c-1]
+				e = alphabetDict[d]
+				f = rotor3[e-1]
+				g = alphabetDict[f]
+				h = reflector[g-1]
+				j = rotor3.index(h)
+				k = alphabetList[j]
+				l = rotor2.index(k)
+				m = alphabetList[l]
+				n = rotor1.index(m)
+				o = alphabetList[n]
+				s.append(o)
+			if (i+1)%1 == 0:
+				rotationRotor(rotor1)
+			if (i+1)%26 == 0:
+				rotationRotor(rotor2)
+			if (i+1)%676 == 0:
+				rotationRotor(rotor3)
+		value = StringVar() 
+		value.set(''.join(s))
+		entree = Entry(fenetre, textvariable=value, width=50)
+		entree.pack()
     
 #text_entry
 entryvar = StringVar()
@@ -121,7 +128,7 @@ entry.bind("<Return>", code)
 entry.pack()
 
 #button_to_(de)code
-b = Button(fenetre, text="(de)code", width=10, command=(code))
+b = Button(fenetre, text="(de)code", width=10, command=code)
 b.pack()
 
 #credits
