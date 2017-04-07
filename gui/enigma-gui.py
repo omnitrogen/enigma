@@ -129,9 +129,12 @@ entry.focus_set()
 entry.bind("<Return>", code)
 entry.pack(padx=10, pady=10)
 
+def clear():
+    liste.delete(0, END)
+
 #button_to_(de)code
-b = Button(fenetre, text="(de)code", width=10, command=code)
-b.pack()
+b1 = Button(fenetre, text="(de)code", width=10, command=code)
+b1.pack()
 
 #store_results
 f1 = Frame(fenetre) 
@@ -139,9 +142,13 @@ s1 = Scrollbar(f1)
 liste = Listbox(f1, height=10, width=50, borderwidth=0, background='white')
 s1.config(command = liste.yview) 
 liste.config(yscrollcommand = s1.set) 
-liste.pack(side = LEFT, fill = Y) 
+liste.pack(side = LEFT, fill = Y, padx=5, pady=5) 
 s1.pack(side = RIGHT, fill = Y) 
 f1.pack() 
+
+#button_to_clear_listbox
+b2 = Button(fenetre, text="clear list", width=10, command=clear)
+b2.pack(padx=5, pady=5)
 
 #credits
 credits = Label(fenetre, text = "coded with <3 by omnitrogen")
