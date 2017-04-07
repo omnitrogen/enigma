@@ -13,7 +13,7 @@ fenetre.configure(background='white')
 image = PhotoImage(file="enigma.gif")
 Label(fenetre, image=image).pack(padx=10, pady=10, side=TOP)
 
-#help
+#help_button
 def help():
     showinfo( "The Enigma Machine Quick Start", "Hello World!\n\nThis is a quick tutorial on how to use this app!\n\nFirst, you need to choose the order of the rotors.\n\nThen you need to set the rotors' position\n\nYou can finally write your message and encrypt it by pressing the Return key!\n\nThat's it, you've just encrypt your first enigma message!\n\n                              Have fun!")
 helpButton = Button(fenetre, text ="Help!", command = help)
@@ -117,11 +117,38 @@ def code(event=None):
                 return False
         return True
     sortie = entryvar.get()
+
+    var4str = var4.get()
+    var4list = list(var4str)
+    var5str = var5.get()
+    var5list = list(var5str)
+    var6str = var6.get()
+    var6list = list(var6str)
+
+    if var4list[5] == '1':
+        rotor1 = ['J','G','D','Q','O','X','U','S','C','A','M','I','F','R','V','T','P','N','E','W','K','B','L','Z','Y','H']
+    elif var4list[5] == '2':
+        rotor1 = ['N','T','Z','P','S','F','B','O','K','M','W','R','C','J','D','I','V','L','A','E','Y','U','X','H','G','Q']
+    elif var4list[5] == '3':
+        rotor1 = ['J','V','I','U','B','H','T','C','D','Y','A','K','E','Q','Z','P','O','S','G','X','N','R','M','W','F','L']
+    if var5list[5] == '1':
+        rotor2 = ['J','G','D','Q','O','X','U','S','C','A','M','I','F','R','V','T','P','N','E','W','K','B','L','Z','Y','H']
+    elif var5list[5] == '2':
+        rotor2 = ['N','T','Z','P','S','F','B','O','K','M','W','R','C','J','D','I','V','L','A','E','Y','U','X','H','G','Q']
+    elif var5list[5] == '3':
+        rotor2 = ['J','V','I','U','B','H','T','C','D','Y','A','K','E','Q','Z','P','O','S','G','X','N','R','M','W','F','L']
+    if var6list[5] == '1':
+        rotor3 = ['J','G','D','Q','O','X','U','S','C','A','M','I','F','R','V','T','P','N','E','W','K','B','L','Z','Y','H']
+    elif var6list[5] == '2':
+        rotor3 = ['N','T','Z','P','S','F','B','O','K','M','W','R','C','J','D','I','V','L','A','E','Y','U','X','H','G','Q']
+    elif var6list[5] == '3':
+        rotor3 = ['J','V','I','U','B','H','T','C','D','Y','A','K','E','Q','Z','P','O','S','G','X','N','R','M','W','F','L']
+
     alphabetList = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',' ', "'"]
     alphabetDict = {'G': 7, 'U': 21, 'T': 20, 'L': 12, 'Y': 25, 'Q': 17, 'V': 22, 'J': 10, 'O': 15, 'W': 23, 'N': 14, 'R': 18, 'Z': 26, 'S': 19, 'X': 24, 'A': 1, 'M': 13, 'E': 5, 'D': 4, 'I': 9, 'F': 6, 'P': 16, 'B': 2, 'H': 8, 'K': 11, 'C': 3}
-    rotor1 = ['J','G','D','Q','O','X','U','S','C','A','M','I','F','R','V','T','P','N','E','W','K','B','L','Z','Y','H']
-    rotor2 = ['N','T','Z','P','S','F','B','O','K','M','W','R','C','J','D','I','V','L','A','E','Y','U','X','H','G','Q']
-    rotor3 = ['J','V','I','U','B','H','T','C','D','Y','A','K','E','Q','Z','P','O','S','G','X','N','R','M','W','F','L']
+    #rotor1 = ['J','G','D','Q','O','X','U','S','C','A','M','I','F','R','V','T','P','N','E','W','K','B','L','Z','Y','H']
+    #rotor2 = ['N','T','Z','P','S','F','B','O','K','M','W','R','C','J','D','I','V','L','A','E','Y','U','X','H','G','Q']
+    #rotor3 = ['J','V','I','U','B','H','T','C','D','Y','A','K','E','Q','Z','P','O','S','G','X','N','R','M','W','F','L']
     reflector = ['Y', 'R', 'U', 'H', 'Q', 'S', 'L', 'D', 'P', 'X', 'N', 'G', 'O', 'K', 'M', 'I', 'E', 'B', 'F', 'Z', 'C', 'W', 'V', 'J', 'A', 'T']
     
     for loop1 in range(a):
@@ -134,6 +161,12 @@ def code(event=None):
     if not estValide(sortieListe):
         value = StringVar() 
         value.set('Please enter only letters and spaces!')
+        liste.insert(END, value.get())
+        liste.itemconfig(END, {'bg':'red'})
+        liste.see("end")
+    elif (var4list[5] == var5list[5] == var6list[5]) or (var4list[5] == var5list[5]) or (var4list[5] == var6list[5]) or (var5list[5] == var6list[5]):
+        value = StringVar() 
+        value.set('You can only use a rotor once!')
         liste.insert(END, value.get())
         liste.itemconfig(END, {'bg':'red'})
         liste.see("end")
