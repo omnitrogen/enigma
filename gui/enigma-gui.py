@@ -63,6 +63,8 @@ def code(event=None):
         del liste1[0]
         return liste1
     def estValide(liste1):
+        if liste1 == []:
+            return False
         for elt in liste1:
             if alphabetList.count(elt.upper()) < 1:
                 return False
