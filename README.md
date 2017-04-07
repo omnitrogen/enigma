@@ -10,7 +10,7 @@ Requirements:
 
 You can find the console application by typing <code>python enigma.py</code> (you may use <code>python3</code> instead of <code>python</code>, it depends on your platform) in your terminal if you are a weird hacker :neckbeard: :computer:
 
-Or you can find the GUI version in the gui folder, and run it by typing <code>python enigma-gui.py</code> :tada:
+Or you can find the GUI version in the gui folder, and run it by typing <code>python enigma-gui.py</code> (you may use python3 instead of python) :tada:
 
 Have fun! :panda_face:
 
