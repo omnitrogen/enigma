@@ -2,6 +2,7 @@
 
 #import_librairies
 from tkinter import *
+from tkinter.messagebox import *
 
 #window
 fenetre = Tk()
@@ -10,10 +11,56 @@ fenetre.configure(background='white')
 
 #enigma_image
 image = PhotoImage(file="enigma.gif")
-Label(fenetre, image=image).pack(padx=20, pady=20, side=TOP)
+Label(fenetre, image=image).pack(padx=10, pady=10, side=TOP)
+
+#help
+def help():
+    showinfo( "The Enigma Machine Quick Start", "Hello World!\n\nThis is a quick tutorial on how to use this app!\n\nFirst, you need to choose the order of the rotors.\n\nThen you need to set the rotors' position\n\nYou can finally write your message and encrypt it by pressing the Return key!\n\nThat's it, you've just encrypt your first enigma message!\n\n                              Have fun!")
+helpButton = Button(fenetre, text ="Help!", command = help)
+helpButton.pack(padx=5, pady=5)
+
+#spinbox_choose_rotors
+frameRotor = Frame(fenetre, background='white')
+
+var4 = StringVar()
+spinbox = Spinbox(frameRotor, values = ("rotor1=[J,G,D,Q,O,X,U,S,C,A,M,I,F,R,V,T,P,N,E,W,K,B,L,Z,Y,H]",
+"rotor2=[N,T,Z,P,S,F,B,O,K,M,W,R,C,J,D,I,V,L,A,E,Y,U,X,H,G,Q]",
+"rotor3=[J,V,I,U,B,H,T,C,D,Y,A,K,E,Q,Z,P,O,S,G,X,N,R,M,W,F,L]"), textvariable=var4, width=44)
+var4.set("rotor1=[J,G,D,Q,O,X,U,S,C,A,M,I,F,R,V,T,P,N,E,W,K,B,L,Z,Y,H]")
+spinbox.grid(row=0, column=1)
+
+var5 = StringVar()
+spinbox = Spinbox(frameRotor, values = ("rotor1=[J,G,D,Q,O,X,U,S,C,A,M,I,F,R,V,T,P,N,E,W,K,B,L,Z,Y,H]",
+"rotor2=[N,T,Z,P,S,F,B,O,K,M,W,R,C,J,D,I,V,L,A,E,Y,U,X,H,G,Q]",
+"rotor3=[J,V,I,U,B,H,T,C,D,Y,A,K,E,Q,Z,P,O,S,G,X,N,R,M,W,F,L]"), textvariable=var5, width=44)
+var5.set("rotor2=[N,T,Z,P,S,F,B,O,K,M,W,R,C,J,D,I,V,L,A,E,Y,U,X,H,G,Q]")
+spinbox.grid(row=1, column=1)
+
+var6 = StringVar()
+spinbox = Spinbox(frameRotor, values = ("rotor1=[J,G,D,Q,O,X,U,S,C,A,M,I,F,R,V,T,P,N,E,W,K,B,L,Z,Y,H]",
+"rotor2=[N,T,Z,P,S,F,B,O,K,M,W,R,C,J,D,I,V,L,A,E,Y,U,X,H,G,Q]",
+"rotor3=[J,V,I,U,B,H,T,C,D,Y,A,K,E,Q,Z,P,O,S,G,X,N,R,M,W,F,L]"), textvariable=var6, width=44)
+var6.set("rotor3=[J,V,I,U,B,H,T,C,D,Y,A,K,E,Q,Z,P,O,S,G,X,N,R,M,W,F,L]")
+spinbox.grid(row=2, column=1)
+
+var7 = StringVar()
+spinbox = Spinbox(frameRotor, values = ("reflec=[Y,R,U,H,Q,S,L,D,P,X,N,G,O,K,M,I,E,B,F,Z,C,W,V,J,A,T]"), textvariable=var7, width=44)
+var7.set("reflec=[Y,R,U,H,Q,S,L,D,P,X,N,G,O,K,M,I,E,B,F,Z,C,W,V,J,A,T]")
+spinbox.grid(row=3, column=1)
+
+rotorn1 = Label(frameRotor, text='Rotor n°=1:', padx=10, pady=5)
+rotorn1.grid(row=0, column=0)
+rotorn2 = Label(frameRotor, text='Rotor n°=2:', padx=10, pady=5)
+rotorn2.grid(row=1, column=0)
+rotorn3 = Label(frameRotor, text='Rotor n°=3:', padx=10, pady=5)
+rotorn3.grid(row=2, column=0)
+reflectorn = Label(frameRotor, text='Reflector:', padx=10, pady=5)
+reflectorn.grid(row=3, column=0)
+
+frameRotor.pack()
 
 #frame_to_set_rotor_position
-frame1 = Frame(fenetre, borderwidth=2, relief=FLAT, background='white')
+frame1 = Frame(fenetre, borderwidth=0, relief=FLAT, background='white')
 frame1.pack(side=TOP, padx=10, pady=10)
     
 def update1(x):
@@ -29,22 +76,22 @@ def update3(x):
     alphabetList = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
     lab3.configure(text='position : {}'.format(alphabetList[x-1]))
 
-rotor1lab = Label(frame1, text='Rotor 1', padx=20, pady=5)
+rotor1lab = Label(frame1, text='Rotor 1', padx=10, pady=5)
 rotor1lab.grid(row=0, column=0)
-rotor2lab = Label(frame1, text='Rotor 2', padx=20, pady=5)
+rotor2lab = Label(frame1, text='Rotor 2', padx=10, pady=5)
 rotor2lab.grid(row=0, column=1)
-rotor3lab = Label(frame1, text='Rotor 3', padx=20, pady=5)
+rotor3lab = Label(frame1, text='Rotor 3', padx=10, pady=5)
 rotor3lab.grid(row=0, column=2)
 
 var1 = DoubleVar()
 scale = Scale(frame1, from_=1, to=26, variable = var1, cursor='dot', showvalue=0, command=update1, length= 100)
-scale.grid(row=1, column=0, padx=20, pady=20)
+scale.grid(row=1, column=0, padx=60, pady=10)
 var2 = DoubleVar()
 scale = Scale(frame1, from_=1, to=26, variable = var2, cursor='dot', showvalue=0, command=update2, length= 100 )
-scale.grid(row=1, column=1, padx=20, pady=20)
+scale.grid(row=1, column=1, padx=60, pady=10)
 var3 = DoubleVar()
 scale = Scale(frame1, from_=1, to=26, variable = var3, cursor='dot', showvalue=0, command=update3, length= 100 )
-scale.grid(row=1, column=2, padx=20, pady=20)
+scale.grid(row=1, column=2, padx=60, pady=10)
 
 lab1 = Label(frame1)
 lab1.grid(row=2, column=0)
@@ -141,7 +188,7 @@ b1.pack()
 #store_results
 f1 = Frame(fenetre) 
 s1 = Scrollbar(f1) 
-liste = Listbox(f1, height=10, width=50, borderwidth=0, background='white')
+liste = Listbox(f1, height=5, width=50, borderwidth=0, background='white')
 s1.config(command = liste.yview) 
 liste.config(yscrollcommand = s1.set) 
 liste.pack(side = LEFT, fill = Y, padx=5, pady=5) 
