@@ -1,6 +1,6 @@
 # enigma-tipe
 
-enigma machine python
+<b>Implementation of the Enigma Machine in Python.</b>
 
 ![alt tag](https://github.com/omnitrogen/enigma/blob/master/enigma_logo_1.png)
 
