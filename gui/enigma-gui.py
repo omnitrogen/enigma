@@ -16,7 +16,7 @@ Label(fenetre, image=image).pack(padx=10, pady=10, side=TOP)
 #help_button
 def help():
     showinfo( "The Enigma Machine Quick Start", "Hello World!\n\nThis is a quick tutorial on how to use this app!\n\nFirst, you need to choose the order of the rotors.\n\nThen you need to set the rotors' position\n\nYou can finally write your message and encrypt it by pressing the Return key!\n\nThat's it, you've just encrypt your first enigma message!\n\n                              Have fun!")
-helpButton = Button(fenetre, text ="Help!", command = help)
+helpButton = Button(fenetre, text ="Help! Quick Start", command = help)
 helpButton.pack(padx=5, pady=5)
 
 #spinboxes_choose_rotors
