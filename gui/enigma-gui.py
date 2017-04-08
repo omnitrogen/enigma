@@ -19,7 +19,7 @@ def help():
 helpButton = Button(fenetre, text ="Help!", command = help)
 helpButton.pack(padx=5, pady=5)
 
-#spinbox_choose_rotors
+#spinboxes_choose_rotors
 frameRotor = Frame(fenetre, background='white')
 
 var4 = StringVar()
@@ -48,11 +48,11 @@ spinbox = Spinbox(frameRotor, values = ("reflec=[Y,R,U,H,Q,S,L,D,P,X,N,G,O,K,M,I
 var7.set("reflec=[Y,R,U,H,Q,S,L,D,P,X,N,G,O,K,M,I,E,B,F,Z,C,W,V,J,A,T]")
 spinbox.grid(row=3, column=1)
 
-rotorn1 = Label(frameRotor, text='Rotor n°=1:', padx=10, pady=5)
+rotorn1 = Label(frameRotor, text='Slot n°=1:', padx=10, pady=5)
 rotorn1.grid(row=0, column=0)
-rotorn2 = Label(frameRotor, text='Rotor n°=2:', padx=10, pady=5)
+rotorn2 = Label(frameRotor, text='Slot n°=2:', padx=10, pady=5)
 rotorn2.grid(row=1, column=0)
-rotorn3 = Label(frameRotor, text='Rotor n°=3:', padx=10, pady=5)
+rotorn3 = Label(frameRotor, text='Slot n°=3:', padx=10, pady=5)
 rotorn3.grid(row=2, column=0)
 reflectorn = Label(frameRotor, text='Reflector:', padx=10, pady=5)
 reflectorn.grid(row=3, column=0)
@@ -83,6 +83,7 @@ rotor2lab.grid(row=0, column=1)
 rotor3lab = Label(frame1, text='Rotor 3', padx=10, pady=5)
 rotor3lab.grid(row=0, column=2)
 
+#scales_choose_position
 var1 = DoubleVar()
 scale = Scale(frame1, from_=1, to=26, variable = var1, cursor='dot', showvalue=0, command=update1, length= 100)
 scale.grid(row=1, column=0, padx=60, pady=10)
@@ -211,6 +212,7 @@ entry.focus_set()
 entry.bind("<Return>", code)
 entry.pack(padx=10, pady=10)
 
+#clear_listbox
 def clear():
     liste.delete(0, END)
 
