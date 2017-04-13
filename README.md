@@ -2,10 +2,7 @@
 
 <b>Implementation of the Enigma Machine in Python :slot_machine: </b>
 
-<p align="center">
-  <img src="https://github.com/omnitrogen/enigma/blob/master/enigma_logo_1.png" alt="enigma"/>
-</p>
-
+![alt tag](https://github.com/omnitrogen/enigma/blob/master/enigma_logo_1.png)
 
 
 * **Requirements**:
