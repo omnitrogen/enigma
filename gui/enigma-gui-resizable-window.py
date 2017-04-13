@@ -6,12 +6,10 @@ fenetre.configure(background='white')
 fenetre.geometry("550x800")
 
 class AutoScrollbar(Scrollbar):
-    # a scrollbar that hides itself if it's not needed.  only
-    # works if you use the grid geometry manager.
+    # create a responsive scrollbar
     def set(self, lo, hi):
         if float(lo) <= 0.0 and float(hi) >= 1.0:
-            # grid_remove is currently missing from Tkinter!
-            self.tk.call("grid", "remove", self)
+            self.call("grid", "remove", self)
         else:
             self.grid()
         Scrollbar.set(self, lo, hi)
@@ -48,7 +46,7 @@ Label(frame, image=image, background="white", borderwidth=0).pack(padx=10, pady=
 
 #help_button
 def help():
-    showinfo( "The Enigma Machine Quick Start", "Hello World!\n\nThis is a quick tutorial on how to use this app!\n\nFirst, you need to choose the order of the rotors.\n\nThen you need to set the rotors' position\n\nYou can finally write your message and encrypt it by pressing the Return key!\n\nThat's it, you've just encrypt your first enigma message!\n\n                              Have fun!")
+    showinfo( "The Enigma Machine Quick Start", "Hello World!\nThis is a quick tutorial on how to use this app!\nFirst, you need to choose the order of the rotors.\nThen you need to set the rotors' position\nYou can finally write your message and encrypt it by pressing the Return key!\nThat's it, you've just encrypt your first enigma message!\n                              Have fun!")
 helpButton = Button(frame, text ="Help! Quick Start", command = help, background="white")
 helpButton.pack(padx=5, pady=5)
 
