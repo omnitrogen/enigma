@@ -7,7 +7,11 @@
 
 * **Requirements**:
 
-> - [x] You just need to have Python installed on your machine (you can install it [here](https://www.python.org/), go to Download and select the latest version of Python 3.x.x), because tkinter is a module of the standard library!
+> - [x] You just need to have Python installed on your machine because tkinter is a module of the standard library!(you can install it [here](https://www.python.org/), go to Download and select the latest version of Python 3.x.x, or directly from here:
+> - [Windows](https://www.python.org/ftp/python/3.6.1/python-3.6.1-amd64.exe)
+> - [Mac OS](https://www.python.org/ftp/python/3.6.1/python-3.6.1-macosx10.6.pkg)
+> - If you are on a Linux distrib, Python is probably already installed. 
+
 
 
 
