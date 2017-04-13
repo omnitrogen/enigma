@@ -264,7 +264,7 @@ s1.pack(side = RIGHT, fill = Y)
 f1.pack() 
 
 #button_to_clear_listbox
-b2 = Button(frame, text="clear list", width=10, command=clear)
+b2 = Button(frame, text="clear list", width=10, command=clear, background='white')
 b2.pack(padx=5, pady=5)
 
 #credits
@@ -272,7 +272,7 @@ credits = Label(frame, text = "coded with <3 by omnitrogen",background="white")
 credits.pack(side = BOTTOM, padx=10, pady=10)
 
 #quit_button
-quitButton = Button(frame, text="quit", width=10, command=frame.quit)
+quitButton = Button(frame, text="quit", width=10, command=frame.quit, background='white')
 quitButton.pack(side = BOTTOM)
 
 canvas.create_window(0, 0, anchor=NW, window=frame)
