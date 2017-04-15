@@ -9,7 +9,7 @@ class AutoScrollbar(Scrollbar):
     # create a responsive scrollbar
     def set(self, lo, hi):
         if float(lo) <= 0.0 and float(hi) >= 1.0:
-            self.call("grid", "remove", self)
+            self.tk.call("grid", "remove", self)
         else:
             self.grid()
         Scrollbar.set(self, lo, hi)
