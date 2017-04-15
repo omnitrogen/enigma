@@ -4,8 +4,6 @@
 from tkinter import *
 from tkinter.messagebox import *
 
-#45
-
 #window
 fenetre = Tk()
 fenetre.title("The Enigma Machine")
