@@ -4,6 +4,8 @@
 from tkinter import *
 from tkinter.messagebox import *
 
+#TEST GIT SUBLIME
+
 #window
 fenetre = Tk()
 fenetre.title("The Enigma Machine")
@@ -22,24 +24,22 @@ helpButton.pack(padx=5, pady=5)
 #spinboxes_choose_rotors
 frameRotor = Frame(fenetre, background='white')
 
-var4 = StringVar()
-spinbox = Spinbox(frameRotor, values = ("rotor1=[J,G,D,Q,O,X,U,S,C,A,M,I,F,R,V,T,P,N,E,W,K,B,L,Z,Y,H]",
+rotorsString = "rotor1=[J,G,D,Q,O,X,U,S,C,A,M,I,F,R,V,T,P,N,E,W,K,B,L,Z,Y,H]",
 "rotor2=[N,T,Z,P,S,F,B,O,K,M,W,R,C,J,D,I,V,L,A,E,Y,U,X,H,G,Q]",
-"rotor3=[J,V,I,U,B,H,T,C,D,Y,A,K,E,Q,Z,P,O,S,G,X,N,R,M,W,F,L]"), textvariable=var4, width=44)
+"rotor3=[J,V,I,U,B,H,T,C,D,Y,A,K,E,Q,Z,P,O,S,G,X,N,R,M,W,F,L]"
+
+var4 = StringVar()
+spinbox = Spinbox(frameRotor, values = (rotorsString), textvariable=var4, width=44)
 var4.set("rotor1=[J,G,D,Q,O,X,U,S,C,A,M,I,F,R,V,T,P,N,E,W,K,B,L,Z,Y,H]")
 spinbox.grid(row=0, column=1)
 
 var5 = StringVar()
-spinbox = Spinbox(frameRotor, values = ("rotor1=[J,G,D,Q,O,X,U,S,C,A,M,I,F,R,V,T,P,N,E,W,K,B,L,Z,Y,H]",
-"rotor2=[N,T,Z,P,S,F,B,O,K,M,W,R,C,J,D,I,V,L,A,E,Y,U,X,H,G,Q]",
-"rotor3=[J,V,I,U,B,H,T,C,D,Y,A,K,E,Q,Z,P,O,S,G,X,N,R,M,W,F,L]"), textvariable=var5, width=44)
+spinbox = Spinbox(frameRotor, values = (rotorsString), textvariable=var5, width=44)
 var5.set("rotor2=[N,T,Z,P,S,F,B,O,K,M,W,R,C,J,D,I,V,L,A,E,Y,U,X,H,G,Q]")
 spinbox.grid(row=1, column=1)
 
 var6 = StringVar()
-spinbox = Spinbox(frameRotor, values = ("rotor1=[J,G,D,Q,O,X,U,S,C,A,M,I,F,R,V,T,P,N,E,W,K,B,L,Z,Y,H]",
-"rotor2=[N,T,Z,P,S,F,B,O,K,M,W,R,C,J,D,I,V,L,A,E,Y,U,X,H,G,Q]",
-"rotor3=[J,V,I,U,B,H,T,C,D,Y,A,K,E,Q,Z,P,O,S,G,X,N,R,M,W,F,L]"), textvariable=var6, width=44)
+spinbox = Spinbox(frameRotor, values = (rotorsString), textvariable=var6, width=44)
 var6.set("rotor3=[J,V,I,U,B,H,T,C,D,Y,A,K,E,Q,Z,P,O,S,G,X,N,R,M,W,F,L]")
 spinbox.grid(row=2, column=1)
 
