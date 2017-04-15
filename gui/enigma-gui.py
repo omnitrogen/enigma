@@ -6,7 +6,6 @@ from tkinter.messagebox import *
 
 #4
 
-
 #window
 fenetre = Tk()
 fenetre.title("The Enigma Machine")
