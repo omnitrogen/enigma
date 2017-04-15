@@ -11,12 +11,12 @@ fenetre.configure(background='white')
 
 #enigma_image
 image = PhotoImage(file="enigma.gif")
-Label(fenetre, image=image).pack(padx=10, pady=10, side=TOP)
+Label(fenetre, image=image, background='white').pack(padx=10, pady=10, side=TOP)
 
 #help_button
 def help():
     showinfo( "The Enigma Machine Quick Start", "Hello World!\n\nThis is a quick tutorial on how to use this app!\n\nFirst, you need to choose the order of the rotors.\n\nThen you need to set the rotors' position\n\nYou can finally write your message and encrypt it by pressing the Return key!\n\nThat's it, you've just encrypt your first enigma message!\n\n                              Have fun!")
-helpButton = Button(fenetre, text ="Help! Quick Start", command = help)
+helpButton = Button(fenetre, text ="Help! Quick Start", command = help, background='white')
 helpButton.pack(padx=5, pady=5)
 
 #spinboxes_choose_rotors
@@ -48,13 +48,13 @@ spinbox = Spinbox(frameRotor, values = ("reflec=[Y,R,U,H,Q,S,L,D,P,X,N,G,O,K,M,I
 var7.set("reflec=[Y,R,U,H,Q,S,L,D,P,X,N,G,O,K,M,I,E,B,F,Z,C,W,V,J,A,T]")
 spinbox.grid(row=3, column=1)
 
-rotorn1 = Label(frameRotor, text='Slot n°=1:', padx=10, pady=5)
+rotorn1 = Label(frameRotor, text='Slot n°=1:', padx=10, pady=5, background='white')
 rotorn1.grid(row=0, column=0)
-rotorn2 = Label(frameRotor, text='Slot n°=2:', padx=10, pady=5)
+rotorn2 = Label(frameRotor, text='Slot n°=2:', padx=10, pady=5, background='white')
 rotorn2.grid(row=1, column=0)
-rotorn3 = Label(frameRotor, text='Slot n°=3:', padx=10, pady=5)
+rotorn3 = Label(frameRotor, text='Slot n°=3:', padx=10, pady=5, background='white')
 rotorn3.grid(row=2, column=0)
-reflectorn = Label(frameRotor, text='Reflector:', padx=10, pady=5)
+reflectorn = Label(frameRotor, text='Reflector:', padx=10, pady=5, background='white')
 reflectorn.grid(row=3, column=0)
 
 frameRotor.pack()
@@ -76,29 +76,29 @@ def update3(x):
     alphabetList = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
     lab3.configure(text='position : {}'.format(alphabetList[x-1]))
 
-rotor1lab = Label(frame1, text='Rotor 1', padx=10, pady=5)
+rotor1lab = Label(frame1, text='Rotor 1', padx=10, pady=5, borderwidth=0, background='white')
 rotor1lab.grid(row=0, column=0)
-rotor2lab = Label(frame1, text='Rotor 2', padx=10, pady=5)
+rotor2lab = Label(frame1, text='Rotor 2', padx=10, pady=5, borderwidth=0, background='white')
 rotor2lab.grid(row=0, column=1)
-rotor3lab = Label(frame1, text='Rotor 3', padx=10, pady=5)
+rotor3lab = Label(frame1, text='Rotor 3', padx=10, pady=5, borderwidth=0, background='white')
 rotor3lab.grid(row=0, column=2)
 
 #scales_choose_position
 var1 = DoubleVar()
-scale = Scale(frame1, from_=1, to=26, variable = var1, cursor='dot', showvalue=0, command=update1, length= 100)
+scale = Scale(frame1, from_=1, to=26, variable = var1, cursor='dot', showvalue=0, command=update1, length= 100, background='white')
 scale.grid(row=1, column=0, padx=60, pady=10)
 var2 = DoubleVar()
-scale = Scale(frame1, from_=1, to=26, variable = var2, cursor='dot', showvalue=0, command=update2, length= 100 )
+scale = Scale(frame1, from_=1, to=26, variable = var2, cursor='dot', showvalue=0, command=update2, length= 100, background='white')
 scale.grid(row=1, column=1, padx=60, pady=10)
 var3 = DoubleVar()
-scale = Scale(frame1, from_=1, to=26, variable = var3, cursor='dot', showvalue=0, command=update3, length= 100 )
+scale = Scale(frame1, from_=1, to=26, variable = var3, cursor='dot', showvalue=0, command=update3, length= 100, background='white')
 scale.grid(row=1, column=2, padx=60, pady=10)
 
-lab1 = Label(frame1)
+lab1 = Label(frame1, background='white')
 lab1.grid(row=2, column=0)
-lab2 = Label(frame1)
+lab2 = Label(frame1, background='white')
 lab2.grid(row=2, column=1)
-lab3 = Label(frame1)
+lab3 = Label(frame1, background='white')
 lab3.grid(row=2, column=2)
 
 #function_code
@@ -207,7 +207,7 @@ def code(event=None):
     
 #text_entry
 entryvar = StringVar()
-entry = Entry(fenetre, textvariable = entryvar, width=50)
+entry = Entry(fenetre, textvariable = entryvar, width=50, background='white')
 entry.focus_set()
 entry.bind("<Return>", code)
 entry.pack(padx=10, pady=10)
@@ -217,7 +217,7 @@ def clear():
     liste.delete(0, END)
 
 #button_to_(de)code
-b1 = Button(fenetre, text="(de)code", width=10, command=code)
+b1 = Button(fenetre, text="(de)code", width=10, command=code, background='white')
 b1.pack()
 
 #store_results
@@ -231,15 +231,16 @@ s1.pack(side = RIGHT, fill = Y)
 f1.pack() 
 
 #button_to_clear_listbox
-b2 = Button(fenetre, text="clear list", width=10, command=clear)
+b2 = Button(fenetre, text="clear list", width=10, command=clear, background='white')
 b2.pack(padx=5, pady=5)
 
 #credits
-credits = Label(fenetre, text = "coded with <3 by omnitrogen")
+credits = Label(fenetre, text = "coded with <3 by omnitrogen", background='white')
 credits.pack(side = BOTTOM, padx=10, pady=10)
 
 #quit_button
-quitButton = Button(fenetre, text="quit", width=10, command=fenetre.quit)
+quitButton = Button(fenetre, text="quit", width=10, command=fenetre.quit, background='white')
 quitButton.pack(side = BOTTOM)
 
 mainloop()
+
