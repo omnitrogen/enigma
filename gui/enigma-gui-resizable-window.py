@@ -7,6 +7,7 @@ fenetre.geometry("550x800")
 
 class AutoScrollbar(Scrollbar):
     #create a responsive scrollbar
+    #from http://effbot.org/zone/tkinter-autoscrollbar.htm
     def set(self, lo, hi):
         if float(lo) <= 0.0 and float(hi) >= 1.0:
             self.tk.call("grid", "remove", self)
