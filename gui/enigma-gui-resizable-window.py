@@ -6,7 +6,7 @@ fenetre.configure(background='white')
 fenetre.geometry("550x800")
 
 class AutoScrollbar(Scrollbar):
-    # create a responsive scrollbar
+    #create a responsive scrollbar
     def set(self, lo, hi):
         if float(lo) <= 0.0 and float(hi) >= 1.0:
             self.tk.call("grid", "remove", self)
@@ -14,9 +14,9 @@ class AutoScrollbar(Scrollbar):
             self.grid()
         Scrollbar.set(self, lo, hi)
     def pack(self, **kw):
-        raise(TclError, "cannot use pack with this widget")
+        raise(TclError, "can't pack this widget")
     def place(self, **kw):
-        raise(TclError, "cannot use place with this widget")
+        raise(TclError, "can't grid this widget")
 
 vscrollbar = AutoScrollbar(fenetre)
 vscrollbar.grid(row=0, column=1, sticky=N+S)
