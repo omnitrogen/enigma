@@ -1,8 +1,6 @@
 from tkinter import *
 import time
 
-#test
-
 root = Tk()
 root.title("The Enigma Machine")
 root.configure(background='white')
@@ -35,33 +33,20 @@ entryCanvas     = canvas.create_image(70,251, image=entry)
 rectangle1      = canvas.create_rectangle(0, 0, 1440, 93, fill="white", width=0)
 rectangle2      = canvas.create_rectangle(0, 408, 1440, 900, fill="white", width=0)
 
-class line():
-	i = 0
-	def __init__(self,x0,y0,x1,y1, color):
-		canvas.create_line(x0,y0,x1,y1, fill=str(color),width=0)
-'''
-		coords = [x0,]
-	@staticmethod
-	def incremente():
-		x += x
-		y += y
-		i += 1
-	def animate(self,color):
-		x = (x1-x0)
-		y = (y1-y0)
-		lineAnimate = canvas.create_line(x0,y0,x/100, y/100,fill=str(color))
-		canvas.after(33, incremente)
-		canvas.after(33, animate)
+def animate(line, coord):
+	coord = [int(x) for x in coord]
+	lineAnimate = canvas.create_line(coord[0],coord[1],coord[0],coord[1],fill="red", width="3")
+	for elt in range(coord[0], coord[2]):
+		canvas.coords(lineAnimate, coord[0],coord[1], elt, coord[1])
+		time.sleep(0.03)
 		canvas.update()
-'''
 
-line1 = line(87,120,149,120,"black")
-line2 = line(87,172,149,172,"black")
-line3 = line(87,224,149,224,"black")
-line4 = line(87,276,149,276,"black")
-line5 = line(87,328,149,328,"black")
-line6 = line(87,380,149,380,"black")
-#line1.animate("green")
+line1 = canvas.create_line(87,120,149,120, fill="black",width=0)
+line2 = canvas.create_line(87,172,149,172, fill="black",width=0)
+line3 = canvas.create_line(87,224,149,224, fill="black",width=0)
+line4 = canvas.create_line(87,276,149,276, fill="black",width=0)
+line5 = canvas.create_line(87,328,149,328, fill="black",width=0)
+line6 = canvas.create_line(87,380,149,380, fill="black",width=0)
 
 canvas.pack()
 
@@ -108,6 +93,10 @@ buttonRotate2.pack(padx=20, pady=20, side=LEFT)
 
 buttonRotate3 = Button(text="Rotate 3", command=rotate3)
 buttonRotate3.pack(padx=20, pady=20, side=LEFT)
+
+buttonAnimateLine = Button(text="Animate Line", command=lambda: animate(line1, canvas.coords(line1))
+)
+buttonAnimateLine.pack(padx=20, pady=20, side=LEFT)
 
 #coded with <3 by omnitrogen
 
