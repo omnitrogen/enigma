@@ -1,3 +1,4 @@
+#!/Library/Frameworks/Python.framework/Versions/3.6/bin/python3
 from tkinter import *
 from tkinter.messagebox import *
 fenetre = Tk()
@@ -6,8 +7,7 @@ fenetre.configure(background='white')
 fenetre.geometry("550x800")
 
 class AutoScrollbar(Scrollbar):
-    #create a responsive scrollbar
-    #from http://effbot.org/zone/tkinter-autoscrollbar.htm
+    #create a 'responsive' scrollbar
     def set(self, lo, hi):
         if float(lo) <= 0.0 and float(hi) >= 1.0:
             self.tk.call("grid", "remove", self)
@@ -20,7 +20,7 @@ class AutoScrollbar(Scrollbar):
         raise(TclError, "can't grid this widget")
 
 vscrollbar = AutoScrollbar(fenetre)
-vscrollbar.grid(row=0, column=1, sticky=N+S)
+vscrollbar.grid(row=0,  column=1, sticky=N+S)
 hscrollbar = AutoScrollbar(fenetre, orient=HORIZONTAL)
 hscrollbar.grid(row=1, column=0, sticky=E+W)
 

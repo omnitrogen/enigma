@@ -1,3 +1,4 @@
+#!/Library/Frameworks/Python.framework/Versions/3.6/bin/python3
 #enigma-graphical-user-interface-version
 
 #import_librairies
