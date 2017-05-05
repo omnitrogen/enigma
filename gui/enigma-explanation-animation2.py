@@ -12,8 +12,37 @@ liaisons3 = PhotoImage(file="liaisons3.gif")
 reflector = PhotoImage(file="reflector.gif")
 abc       = PhotoImage(file="abc.gif")
 entry     = PhotoImage(file="entry.gif")
-  
+
 canvas = Canvas(root, width = 1440, height = 500)  
+
+line1  = canvas.create_line(87,120,149,120, fill="black",width=0)
+line2  = canvas.create_line(87,172,149,172, fill="black",width=0)
+line3  = canvas.create_line(87,224,149,224, fill="black",width=0)
+line4  = canvas.create_line(87,276,149,276, fill="black",width=0)
+line5  = canvas.create_line(87,328,149,328, fill="black",width=0)
+line6  = canvas.create_line(87,380,149,380, fill="black",width=0)
+
+line7  = canvas.create_line(390,120,499,120, fill="black",width=0)
+line8  = canvas.create_line(390,172,499,172, fill="black",width=0)
+line9  = canvas.create_line(390,224,499,224, fill="black",width=0)
+line10 = canvas.create_line(390,276,499,276, fill="black",width=0)
+line11 = canvas.create_line(390,328,499,328, fill="black",width=0)
+line12 = canvas.create_line(390,380,499,380, fill="black",width=0)
+
+line13 = canvas.create_line(87+303+350,120,149+350+350,120, fill="black",width=0)
+line14 = canvas.create_line(87+303+350,172,149+350+350,172, fill="black",width=0)
+line15 = canvas.create_line(87+303+350,224,149+350+350,224, fill="black",width=0)
+line16 = canvas.create_line(87+303+350,276,149+350+350,276, fill="black",width=0)
+line17 = canvas.create_line(87+303+350,328,149+350+350,328, fill="black",width=0)
+line18 = canvas.create_line(87+303+350,380,149+350+350,380, fill="black",width=0)
+
+line19 = canvas.create_line(87+303+350+350,120,149+350+350+354,120, fill="black",width=0)
+line20 = canvas.create_line(87+303+350+350,172,149+350+350+354,172, fill="black",width=0)
+line21 = canvas.create_line(87+303+350+350,224,149+350+350+354,224, fill="black",width=0)
+line22 = canvas.create_line(87+303+350+350,276,149+350+350+354,276, fill="black",width=0)
+line23 = canvas.create_line(87+303+350+350,328,149+350+350+354,328, fill="black",width=0)
+line24 = canvas.create_line(87+303+350+350,380,149+350+350+354,380, fill="black",width=0)
+
 
 cadreCanvas1    = canvas.create_image(270,250, image=cadre)
 liaisonsCanvas1 = canvas.create_image(272,405, image=liaisons)
@@ -38,15 +67,18 @@ def animate(line, coord):
 	lineAnimate = canvas.create_line(coord[0],coord[1],coord[0],coord[1],fill="red", width="3")
 	for elt in range(coord[0], coord[2]):
 		canvas.coords(lineAnimate, coord[0],coord[1], elt, coord[1])
-		time.sleep(0.03)
+		abcCanvas1      = canvas.create_image(445,250, image=abc)
+		abcCanvas2      = canvas.create_image(795,250, image=abc)
+		abcCanvas3      = canvas.create_image(1145,250, image=abc)
+		#time.sleep(0.0000001)
 		canvas.update()
 
-line1 = canvas.create_line(87,120,149,120, fill="black",width=0)
-line2 = canvas.create_line(87,172,149,172, fill="black",width=0)
-line3 = canvas.create_line(87,224,149,224, fill="black",width=0)
-line4 = canvas.create_line(87,276,149,276, fill="black",width=0)
-line5 = canvas.create_line(87,328,149,328, fill="black",width=0)
-line6 = canvas.create_line(87,380,149,380, fill="black",width=0)
+def animate2():
+	animate(line1,  canvas.coords(line1))
+	animate(line7,  canvas.coords(line7))
+	animate(line13, canvas.coords(line13))
+	animate(line19, canvas.coords(line19))
+
 
 canvas.pack()
 
@@ -94,8 +126,7 @@ buttonRotate2.pack(padx=20, pady=20, side=LEFT)
 buttonRotate3 = Button(text="Rotate 3", command=rotate3)
 buttonRotate3.pack(padx=20, pady=20, side=LEFT)
 
-buttonAnimateLine = Button(text="Animate Line", command=lambda: animate(line1, canvas.coords(line1))
-)
+buttonAnimateLine = Button(text="Animate Line", command=animate2)
 buttonAnimateLine.pack(padx=20, pady=20, side=LEFT)
 
 #coded with <3 by omnitrogen
