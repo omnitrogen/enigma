@@ -53,9 +53,9 @@ liaisonsCanvas3 = canvas.create_image(970,405, image=liaisons3)
 
 reflectorCanvas = canvas.create_image(1300,250, image=reflector)
 
-abcCanvas1      = canvas.create_image(445,250, image=abc)
-abcCanvas2      = canvas.create_image(795,250, image=abc)
-abcCanvas3      = canvas.create_image(1145,250, image=abc)
+#abcCanvas1      = canvas.create_image(445,250, image=abc)
+#abcCanvas2      = canvas.create_image(795,250, image=abc)
+#abcCanvas3      = canvas.create_image(1145,250, image=abc)
 
 entryCanvas     = canvas.create_image(70,251, image=entry)
 
@@ -64,13 +64,10 @@ rectangle2      = canvas.create_rectangle(0, 408, 1440, 900, fill="white", width
 
 def animate(line, coord):
 	coord = [int(x) for x in coord]
-	lineAnimate = canvas.create_line(coord[0],coord[1],coord[0],coord[1],fill="red", width="3")
-	for elt in range(coord[0], coord[2]):
+	lineAnimate = canvas.create_line(coord[0],coord[1],coord[0],coord[1],fill="green", width="5")
+	for elt in range(coord[0], coord[2],1):
 		canvas.coords(lineAnimate, coord[0],coord[1], elt, coord[1])
-		abcCanvas1      = canvas.create_image(445,250, image=abc)
-		abcCanvas2      = canvas.create_image(795,250, image=abc)
-		abcCanvas3      = canvas.create_image(1145,250, image=abc)
-		#time.sleep(0.0000001)
+		time.sleep(0.001)
 		canvas.update()
 
 def animate2():
