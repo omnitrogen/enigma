@@ -132,25 +132,44 @@ def codePath(event=None):
 	rotor1List = [3,5,2,0,4,1]
 	rotor2List = [0,1,4,2,3,5]
 	rotor3List = [3,5,1,0,4,2]
+
 	reflecList = [5,0,4,3,1,2]
+
+	r1G = [3,5,2,0,4,1]
+	r2G = [0,1,4,2,3,5]
+	r3G = [3,5,1,0,4,2]
+
+	r1D = [6,3,1,5,2,4]
+	r2D = [2,4,5,3,6,1]
+	r3D = [3,6,1,5,2,4]
+
 	for it in range(i1):
-		rotationRotor(rotor1List)
+		rotationRotor(r1G)
 	for it in range(i2):
-		rotationRotor(rotor2List)
+		rotationRotor(r2G)
 	for it in range(i3):
-		rotationRotor(rotor3List)
+		rotationRotor(r3G)
+	for it in range(i1):
+		rotationRotor(r1D)
+	for it in range(i2):
+		rotationRotor(r2D)
+	for it in range(i3):
+		rotationRotor(r3D)
 	letter = entryvar.get()
 	alphabet = ["A", "B", "C", "D", "E", "F"]
 	ligneDepart = alphabet.index(letter) + 1
 
 	print("rotation 1 : ",i1,"\nrotation 2 : ",i2,"\nrotation 3 : ",i3,"ligne départ",ligneDepart)
-	a = rotor1List[ligneDepart-1] - i1
-	b = rotor2List[a-1] - i2
-	c = rotor3List[b-1] - i3
+
+	a = r1G[ligneDepart-1] - i1
+	b = r2G[a-1] - i2
+	c = r3G[b-1] - i3
 	d = reflecList[c-1]
-	e = rotor3List.index(d%6) + 1 - i3
-	f = rotor2List.index(e%6) + 1 - i2
-	g = rotor1List.index(f%6) + 1 - i1
+	e = r3D[d-1] - i3
+	f = r2D[e-1] - i2
+	g = r1D[f-1] - i1
+
+
 	print(a,b,c,d,e,f,g)
 	dic = {"10":"6","20":"12","30":"18","40":"24","11":"1","12":"2","13":"3","14":"4","15":"5","16":"6","21":"7","22":"8","23":"9","24":"10","25":"11","26":"12","31":"13","32":"14","33":"15","34":"16","35":"17","36":"18","41":"19","42":"20","43":"21","44":"22","45":"23","46":"24"}
 	animate(dic.get("1"+str(ligneDepart)),1)
