@@ -129,10 +129,10 @@ def circle(numLigne,color='green'):
 
 def codePath(event=None):
 	global i1, i2, i3
-	rotor1List = [3,5,2,6,4,1]
-	rotor2List = [6,1,4,2,3,5]
-	rotor3List = [3,5,1,6,4,2]
-	reflecList = [5,6,4,3,1,2]
+	rotor1List = [3,5,2,0,4,1]
+	rotor2List = [0,1,4,2,3,5]
+	rotor3List = [3,5,1,0,4,2]
+	reflecList = [5,0,4,3,1,2]
 	for it in range(i1):
 		rotationRotor(rotor1List)
 	for it in range(i2):
@@ -148,9 +148,9 @@ def codePath(event=None):
 	b = rotor2List[a-1] - i2
 	c = rotor3List[b-1] - i3
 	d = reflecList[c-1]
-	e = rotor3List.index(d) + 1 + i3
-	f = rotor2List.index(e) + 1 + i2
-	g = rotor1List.index(f) + 1 + i1
+	e = rotor3List.index(d%6) + 1 - i3
+	f = rotor2List.index(e%6) + 1 - i2
+	g = rotor1List.index(f%6) + 1 - i1
 	print(a,b,c,d,e,f,g)
 	dic = {"10":"6","20":"12","30":"18","40":"24","11":"1","12":"2","13":"3","14":"4","15":"5","16":"6","21":"7","22":"8","23":"9","24":"10","25":"11","26":"12","31":"13","32":"14","33":"15","34":"16","35":"17","36":"18","41":"19","42":"20","43":"21","44":"22","45":"23","46":"24"}
 	animate(dic.get("1"+str(ligneDepart)),1)
@@ -162,6 +162,7 @@ def codePath(event=None):
 	animate(dic.get("2"+str((f)%6)),0)
 	animate(dic.get("1"+str((g)%6)),0)
 	circle(g)
+	print("ok")
 
 
 entryvar = StringVar()
