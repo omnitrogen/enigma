@@ -66,7 +66,7 @@ def animate(line, sens):
     coord = canvas.coords(line)
     coord = [int(x) for x in coord]
     if sens:
-        canvas.create_line(coord[0],coord[1],coord[0],coord[1],fill="red", width="5")
+        canvas.create_line(coord[0],coord[1],coord[0],coord[1],fill="green", width="5")
         for elt in range(coord[0], coord[2]+1,1):
             canvas.coords(str(animateIncremente), coord[0],coord[1], elt, coord[1])
             time.sleep(0.0000001)
@@ -156,9 +156,10 @@ def codePath(event=None):
         e = r3D[d-1] - i3
         f = r2D[e-1] - i2
         g = r1D[f-1] - i1
-        print(a,b,c,d,e,f,g)
+        print(ligneDepart,a,b,c,d,e,f,g)
         dic = {"10":"6","20":"12","30":"18","40":"24","11":"1","12":"2","13":"3","14":"4","15":"5","16":"6","21":"7","22":"8","23":"9","24":"10","25":"11","26":"12","31":"13","32":"14","33":"15","34":"16","35":"17","36":"18","41":"19","42":"20","43":"21","44":"22","45":"23","46":"24"}
-        animate(dic.get("1"+str(ligneDepart)),1)
+        for loop in range(nbRotation+1):
+            animate(dic.get("1"+str(ligneDepart)),1)
         animate(dic.get("2"+str(a % 6)),1)
         animate(dic.get("3"+str(b % 6)),1)
         animate(dic.get("4"+str(c % 6)),1)
@@ -180,12 +181,13 @@ def codePath(event=None):
             rotate(liaisonsCanvas3)
             rotationRotor(r3G)
             rotationRotor(r3D)
-        effacerLignes()
         time.sleep(6)
+        effacerLignes()
+        time.sleep(2)
         nbRotation += 1
 
 
-frameButton = Frame(root)
+frameButton = Frame(root,background='white')
 
 buttonRotate1 = Button(frameButton,text="Rotate 1", command= lambda: rotate(liaisonsCanvas1))
 buttonRotate1.grid(row=1, column=0,padx=50)
