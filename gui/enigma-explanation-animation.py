@@ -222,6 +222,8 @@ coderPath.pack(padx=5, pady=5)
 buttonReinit = Button(root,text="Reinitialiser", command=reinitialiser)
 buttonReinit.pack(padx=5, pady=5)
 
-#coded with <3 by omnitrogen
+#credits
+credits = Label(root, text = "coded with <3 by omnitrogen", background='white')
+credits.pack(side = BOTTOM, padx=10, pady=10)
 
 mainloop()
