@@ -203,6 +203,8 @@ buttonRotate3.pack(padx=20, pady=20, side=LEFT)
 coderPath = Button(text="coder", command= codePath)
 coderPath.pack(padx=20, pady=20, side=LEFT)
 
-#coded with <3 by omnitrogen
+#credits
+credits = Label(root, text = "coded with <3 by omnitrogen", background='white')
+credits.pack(side = BOTTOM, padx=10, pady=10)
 
 mainloop()
