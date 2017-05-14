@@ -6,7 +6,7 @@ root.title("The Enigma Machine")
 root.configure(background='white')
 
 cadre     = PhotoImage(file="cadre.gif")
-liaisons  = PhotoImage(file="liaisons.gif")
+liaisons1 = PhotoImage(file="liaisons1.gif")
 liaisons2 = PhotoImage(file="liaisons2.gif")
 liaisons3 = PhotoImage(file="liaisons3.gif")
 reflector = PhotoImage(file="reflector.gif")
@@ -43,19 +43,19 @@ canvas.create_line(1090,276,1203,276, fill="grey",width=0)
 canvas.create_line(1090,328,1203,328, fill="grey",width=0)
 canvas.create_line(1090,380,1203,380, fill="grey",width=0)
 
-cadreCanvas1 = canvas.create_image(270,250, image=cadre)
-liaisonsCanvas1 = canvas.create_image(272,405, image=liaisons)
-cadreCanvas2 = canvas.create_image(620,250, image=cadre)
+cadreCanvas1    = canvas.create_image(270,250, image=cadre)
+liaisonsCanvas1 = canvas.create_image(272,718, image=liaisons1)
+cadreCanvas2    = canvas.create_image(620,250, image=cadre)
 liaisonsCanvas2 = canvas.create_image(620,405, image=liaisons2)
-cadreCanvas3 = canvas.create_image(970,250, image=cadre)
+cadreCanvas3    = canvas.create_image(970,250, image=cadre)
 liaisonsCanvas3 = canvas.create_image(970,402, image=liaisons3)
 
 reflectorCanvas = canvas.create_image(1300,250, image=reflector)
 
-entryCanvas = canvas.create_image(70,251, image=entry)
+entryCanvas     = canvas.create_image(70,251, image=entry)
 
-rectangle1 = canvas.create_rectangle(0, 0, 1440, 93, fill="white", width=0)
-rectangle2 = canvas.create_rectangle(0, 408, 1440, 900, fill="white", width=0)
+rectangle1      = canvas.create_rectangle(0, 0, 1440, 93, fill="white", width=0)
+rectangle2      = canvas.create_rectangle(0, 408, 1440, 900, fill="white", width=0)
 
 canvas.pack()
 
