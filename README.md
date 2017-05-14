@@ -25,7 +25,7 @@
 
 * **Graphical version for small devices**: run the enigma-gui-resizable-window.py file located under the gui folder by typing <code>python enigma-gui-resizable-window.py</code> :hatching_chick:
 
-* **Enigma animation**: run the enigma animation by typing <code>python enigma-explanation-animation2</code> :hatching_chick:
+* **Enigma animation**: run the enigma animation by typing <code>python enigma-explanation-animation.py</code> :heartpulse:
 
 
 
