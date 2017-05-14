@@ -13,7 +13,7 @@ reflector = PhotoImage(file="reflector.gif")
 abc       = PhotoImage(file="abc.gif")
 entry     = PhotoImage(file="entry.gif")
 
-canvas = Canvas(root, width = 1440, height = 500)
+canvas = Canvas(root, width = 1440, height = 500, borderwidth=0, background='white',highlightthickness=0)
 
 canvas.create_line(87,120,149,120, fill="grey",width=0)
 canvas.create_line(87,172,149,172, fill="grey",width=0)
@@ -212,7 +212,7 @@ entryLetter.bind("<Return>", codePath)
 entryLetter.pack(padx=5, pady=5)
 
 sortieLabelVar = StringVar()
-sortieLabel = Label(root,textvariable=sortieLabelVar)
+sortieLabel = Label(root,textvariable=sortieLabelVar, borderwidth=0, background='white',highlightthickness=0)
 sortieLabel.pack()
 
 
