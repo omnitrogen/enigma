@@ -97,6 +97,8 @@ def reinitialiser():
     canvas.move(liaisonsCanvas1, 0, i1*52)
     canvas.move(liaisonsCanvas2, 0, i2*52)
     canvas.move(liaisonsCanvas3, 0, i3*52)
+    canvas.delete('35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59', '60', '61', '62', '63', '64', '65', '66', '67', '68', '69', '70', '71', '72', '73', '74', '75', '76', '77', '78', '79', '80', '81', '82', '83', '84', '85', '86', '87', '88', '89', '90', '91', '92', '93', '94', '95', '96', '97', '98', '99', '100', '101', '102', '103', '104', '105', '106', '107', '108', '109', '110', '111', '112', '113', '114', '115', '116', '117', '118', '119', '120', '121', '122', '123', '124', '125', '126', '127', '128', '129', '130', '131', '132', '133', '134', '135', '136', '137', '138', '139', '140', '141', '142', '143', '144', '145', '146', '147', '148', '149', '150', '151', '152', '153', '154', '155', '156', '157', '158', '159', '160', '161', '162', '163', '164', '165', '166', '167', '168', '169', '170', '171', '172', '173', '174', '175', '176', '177', '178', '179', '180', '181', '182', '183', '184', '185', '186', '187', '188', '189', '190', '191', '192', '193', '194', '195', '196', '197', '198', '199')
+    sortieLabelVar.set('')
     i1, i2, i3 = 0, 0, 0
 
 def rotationRotor(liste1):
@@ -128,6 +130,7 @@ def codePath(event=None):
     lettresEntrees = list(entryvar.get())
     nbRotation = 0
     alphabet = ["A", "B", "C", "D", "E", "F"]
+    resultList = []
     '''
     def estValide(liste1):
         if liste1 == []:
@@ -167,7 +170,8 @@ def codePath(event=None):
         animate(dic.get("3"+str(e % 6)),0)
         animate(dic.get("2"+str(f % 6)),0)
         animate(dic.get("1"+str(g % 6)),0)
-        circle(g,"green")
+        circle(g,"red")
+        resultList.append(alphabet[(g-1) % 6])
         print("ok")
         if (nbRotation+1) % 1 == 0:
             rotate(liaisonsCanvas1)
@@ -181,7 +185,8 @@ def codePath(event=None):
             rotate(liaisonsCanvas3)
             rotationRotor(r3G)
             rotationRotor(r3D)
-        time.sleep(6)
+        time.sleep(2)
+        sortieLabelVar.set(resultList)
         effacerLignes()
         time.sleep(2)
         nbRotation += 1
@@ -205,6 +210,10 @@ entryLetter = Entry(root, textvariable = entryvar, width=10, background='white')
 entryLetter.focus_set()
 entryLetter.bind("<Return>", codePath)
 entryLetter.pack(padx=5, pady=5)
+
+sortieLabelVar = StringVar()
+sortieLabel = Label(root,textvariable=sortieLabelVar)
+sortieLabel.pack()
 
 
 coderPath = Button(text="coder", command= codePath)
