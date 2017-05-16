@@ -69,13 +69,13 @@ def animate(line, sens):
         canvas.create_line(coord[0],coord[1],coord[0],coord[1],fill="green", width="5")
         for elt in range(coord[0], coord[2]+1,1):
             canvas.coords(str(animateIncremente), coord[0],coord[1], elt, coord[1])
-            time.sleep(0.0000001)
+            time.sleep(int(speedVar.get())/10)
             canvas.update()
     if not sens:
         canvas.create_line(coord[2],coord[1],coord[2],coord[1],fill="green", width="5")
         for elt in range(coord[2]-1, coord[0],-1):
             canvas.coords(str(animateIncremente), coord[2],coord[1], elt, coord[1])
-            time.sleep(0.0000001)
+            time.sleep(int(speedVar.get())/10)
             canvas.update()
     animateIncremente += 1
 
@@ -128,6 +128,8 @@ def effacerLignes():
 
 def codePath(event=None):
     lettresEntrees = list(entryvar.get())
+    speedInt = int(speedVar.get())
+    print(speedInt)
     nbRotation = 0
     alphabet = ["A", "B", "C", "D", "E", "F"]
     resultList = []
@@ -163,13 +165,21 @@ def codePath(event=None):
         dic = {"10":"6","20":"12","30":"18","40":"24","11":"1","12":"2","13":"3","14":"4","15":"5","16":"6","21":"7","22":"8","23":"9","24":"10","25":"11","26":"12","31":"13","32":"14","33":"15","34":"16","35":"17","36":"18","41":"19","42":"20","43":"21","44":"22","45":"23","46":"24"}
         for loop in range(nbRotation+1):
             animate(dic.get("1"+str(ligneDepart)),1)
+            time.sleep(speedInt)
         animate(dic.get("2"+str(a % 6)),1)
+        time.sleep(speedInt)
         animate(dic.get("3"+str(b % 6)),1)
+        time.sleep(speedInt)
         animate(dic.get("4"+str(c % 6)),1)
+        time.sleep(speedInt)
         animate(dic.get("4"+str(d)),0)
+        time.sleep(speedInt)
         animate(dic.get("3"+str(e % 6)),0)
+        time.sleep(speedInt)
         animate(dic.get("2"+str(f % 6)),0)
+        time.sleep(speedInt)
         animate(dic.get("1"+str(g % 6)),0)
+        time.sleep(speedInt)
         circle(g,"red")
         resultList.append(alphabet[(g-1) % 6])
         print("ok")
@@ -203,6 +213,10 @@ buttonRotate2.grid(row=1, column=1,padx=50)
 buttonRotate3 = Button(frameButton,text="Rotate 3", command= lambda: rotate(liaisonsCanvas3))
 buttonRotate3.grid(row=1, column=2,padx=50)
 
+speedVar = StringVar()
+speedEntry = Entry(frameButton, textvariable = speedVar, width=5, background='white')
+speedEntry.grid(row=1, column=3,padx=20)
+
 frameButton.pack()
 
 entryvar = StringVar()
@@ -212,7 +226,7 @@ entryLetter.bind("<Return>", codePath)
 entryLetter.pack(padx=5, pady=5)
 
 sortieLabelVar = StringVar()
-sortieLabel = Label(root,textvariable=sortieLabelVar, borderwidth=0, background='white',highlightthickness=0)
+sortieLabel = Label(root,textvariable=sortieLabelVar, borderwidth=0, background='white',highlightthickness=0,font=(None,20))
 sortieLabel.pack()
 
 
