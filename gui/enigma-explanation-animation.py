@@ -155,12 +155,12 @@ def codePath(event=None):
     for elt in lettresEntrees:
         ligneDepart = alphabet.index(str.upper(elt)) + 1
         a = r1G[ligneDepart-1] - i1
-        b = r2G[a-1] - i2
-        c = r3G[b-1] - i3
-        d = reflecList[c-1]
-        e = r3D[d-1] - i3
-        f = r2D[e-1] - i2
-        g = r1D[f-1] - i1
+        b = r2G[(a-1) % 6] - i2
+        c = r3G[(b-1) % 6] - i3
+        d = reflecList[(c-1) % 6]
+        e = r3D[(d-1) % 6] - i3
+        f = r2D[(e-1) % 6] - i2
+        g = r1D[(f-1) % 6] - i1
         print(ligneDepart,a,b,c,d,e,f,g)
         dic = {"10":"6","20":"12","30":"18","40":"24","11":"1","12":"2","13":"3","14":"4","15":"5","16":"6","21":"7","22":"8","23":"9","24":"10","25":"11","26":"12","31":"13","32":"14","33":"15","34":"16","35":"17","36":"18","41":"19","42":"20","43":"21","44":"22","45":"23","46":"24"}
         for loop in range(nbRotation+1):
