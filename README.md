@@ -22,7 +22,7 @@
 * **Command line version (deprecated)**: run the enigma.py file by typing <code>python enigma.py</code> in your terminal if you are a weird hacker :neckbeard: :computer: 
 
 
-PS:(you may use <code>python3</code> instead of <code>python</code>, it depends on your platform) 
+PS: you may use <code>python3</code> instead of <code>python</code>, it depends on your platform
 
 
 
