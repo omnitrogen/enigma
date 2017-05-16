@@ -183,6 +183,7 @@ def codePath(event=None):
         circle(g,"red")
         resultList.append(alphabet[(g-1) % 6])
         print("ok")
+        sortieLabelVar.set(resultList)
         if (nbRotation+1) % 1 == 0:
             rotate(liaisonsCanvas1)
             rotationRotor(r1G)
@@ -196,7 +197,6 @@ def codePath(event=None):
             rotationRotor(r3G)
             rotationRotor(r3D)
         time.sleep(2)
-        sortieLabelVar.set(resultList)
         effacerLignes()
         time.sleep(2)
         nbRotation += 1
@@ -213,11 +213,15 @@ buttonRotate2.grid(row=1, column=1,padx=50)
 buttonRotate3 = Button(frameButton,text="Rotate 3", command= lambda: rotate(liaisonsCanvas3))
 buttonRotate3.grid(row=1, column=2,padx=50)
 
-speedVar = StringVar()
-speedEntry = Entry(frameButton, textvariable = speedVar, width=5, background='white')
-speedEntry.grid(row=1, column=3,padx=20)
+labelSpeed = Label(frameButton,text="Enter speed (0 is the fastest):")
+labelSpeed.grid(row=1, column=3, padx=20)
 
-frameButton.pack()
+speedVar = StringVar()
+speedEntry = Entry(frameButton, textvariable = speedVar, width=2, background='white')
+speedEntry.insert(END, "0")
+speedEntry.grid(row=1, column=4,padx=0)
+
+frameButton.pack(pady=20)
 
 entryvar = StringVar()
 entryLetter = Entry(root, textvariable = entryvar, width=10, background='white')
