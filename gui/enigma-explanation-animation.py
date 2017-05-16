@@ -69,13 +69,13 @@ def animate(line, sens):
         canvas.create_line(coord[0],coord[1],coord[0],coord[1],fill="green", width="5")
         for elt in range(coord[0], coord[2]+1,1):
             canvas.coords(str(animateIncremente), coord[0],coord[1], elt, coord[1])
-            time.sleep(int(speedVar.get())/20)
+            time.sleep(int(speedVar.get())/100)
             canvas.update()
     if not sens:
         canvas.create_line(coord[2],coord[1],coord[2],coord[1],fill="green", width="5")
         for elt in range(coord[2]-1, coord[0],-1):
             canvas.coords(str(animateIncremente), coord[2],coord[1], elt, coord[1])
-            time.sleep(int(speedVar.get())/20)
+            time.sleep(int(speedVar.get())/100)
             canvas.update()
     animateIncremente += 1
 
