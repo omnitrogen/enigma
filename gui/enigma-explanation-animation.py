@@ -213,7 +213,7 @@ buttonRotate2.grid(row=1, column=1,padx=50)
 buttonRotate3 = Button(frameButton,text="Rotate 3", command= lambda: rotate(liaisonsCanvas3))
 buttonRotate3.grid(row=1, column=2,padx=50)
 
-labelSpeed = Label(frameButton,text="Enter speed (0 is the fastest):")
+labelSpeed = Label(frameButton,text="Enter speed (0:fastest, 1,2:slower):")
 labelSpeed.grid(row=1, column=3, padx=20)
 
 speedVar = StringVar()
