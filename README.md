@@ -14,11 +14,11 @@
 
 # **Files**:
 
-* **Graphical version for desktop**: run the enigma-gui.py file located under the gui folder by typing <code>python enigma-gui.py</code> :tada:
+* **Graphical version for desktop**: run the enigma-gui.py file located under the <code>gui</code> folder by typing <code>python enigma-gui.py</code> :tada:
 
-* **Graphical version for small devices**: run the enigma-gui-resizable-window.py file located under the gui folder by typing <code>python enigma-gui-resizable-window.py</code> :hatching_chick:
+* **Graphical version for small devices**: run the enigma-gui-resizable-window.py file located under the <code>gui</code> folder by typing <code>python enigma-gui-resizable-window.py</code> :hatching_chick:
 
-* **Enigma animation**: run the enigma animation by typing <code>python enigma-explanation-animation.py</code> :heartpulse:
+* **Enigma animation**: run the enigma-explanation-animation.py file located under the <code>gui</code> folder by typing <code>python enigma-explanation-animation.py</code> :heartpulse:
 
 * **Command line version (deprecated)**: run the enigma.py file by typing <code>python enigma.py</code> in your terminal if you are a weird hacker :neckbeard: :computer: 
 
