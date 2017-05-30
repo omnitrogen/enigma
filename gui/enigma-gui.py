@@ -67,15 +67,15 @@ frame1.pack(side=TOP, padx=10, pady=10)
 def update1(x):
     x = int(x)
     alphabetList = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-    lab1.configure(text='position : {}'.format(alphabetList[x-1]))
+    lab1.configure(text='position : {}'.format(alphabetList[x]))
 def update2(x):
     x = int(x)
     alphabetList = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-    lab2.configure(text='position : {}'.format(alphabetList[x-1]))
+    lab2.configure(text='position : {}'.format(alphabetList[x]))
 def update3(x):
     x = int(x)
     alphabetList = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-    lab3.configure(text='position : {}'.format(alphabetList[x-1]))
+    lab3.configure(text='position : {}'.format(alphabetList[x]))
 
 rotor1lab = Label(frame1, text='Rotor 1', padx=10, pady=5, borderwidth=0, background='white')
 rotor1lab.grid(row=0, column=0)
@@ -86,13 +86,13 @@ rotor3lab.grid(row=0, column=2)
 
 #scales_choose_position
 var1 = DoubleVar()
-scale = Scale(frame1, from_=1, to=26, variable = var1, cursor='dot', showvalue=0, command=update1, length= 100, background='white')
+scale = Scale(frame1, from_=0, to=25, variable = var1, cursor='dot', showvalue=0, command=update1, length= 100, background='white')
 scale.grid(row=1, column=0, padx=60, pady=10)
 var2 = DoubleVar()
-scale = Scale(frame1, from_=1, to=26, variable = var2, cursor='dot', showvalue=0, command=update2, length= 100, background='white')
+scale = Scale(frame1, from_=0, to=25, variable = var2, cursor='dot', showvalue=0, command=update2, length= 100, background='white')
 scale.grid(row=1, column=1, padx=60, pady=10)
 var3 = DoubleVar()
-scale = Scale(frame1, from_=1, to=26, variable = var3, cursor='dot', showvalue=0, command=update3, length= 100, background='white')
+scale = Scale(frame1, from_=0, to=25, variable = var3, cursor='dot', showvalue=0, command=update3, length= 100, background='white')
 scale.grid(row=1, column=2, padx=60, pady=10)
 
 lab1 = Label(frame1, background='white')
@@ -129,23 +129,23 @@ def code(event=None):
     var6str = var6.get()
     var6list = list(var6str)
 
-    if var4list[5] == '1':
+    if var4list[5] == '1':  # si rotor en position 1 est le 1
         rotor1 = ['J','G','D','Q','O','X','U','S','C','A','M','I','F','R','V','T','P','N','E','W','K','B','L','Z','Y','H']
-    elif var4list[5] == '2':
+    elif var4list[5] == '2':  # si rotor en position 1 est le 2
         rotor1 = ['N','T','Z','P','S','F','B','O','K','M','W','R','C','J','D','I','V','L','A','E','Y','U','X','H','G','Q']
-    elif var4list[5] == '3':
+    elif var4list[5] == '3':  # si rotor en position 1 est le 3
         rotor1 = ['J','V','I','U','B','H','T','C','D','Y','A','K','E','Q','Z','P','O','S','G','X','N','R','M','W','F','L']
-    if var5list[5] == '1':
+    if var5list[5] == '1':  # si rotor en position 2 est le 1
         rotor2 = ['J','G','D','Q','O','X','U','S','C','A','M','I','F','R','V','T','P','N','E','W','K','B','L','Z','Y','H']
-    elif var5list[5] == '2':
+    elif var5list[5] == '2':  # si rotor en position 2 est le 2
         rotor2 = ['N','T','Z','P','S','F','B','O','K','M','W','R','C','J','D','I','V','L','A','E','Y','U','X','H','G','Q']
-    elif var5list[5] == '3':
+    elif var5list[5] == '3':  # si rotor en position 2 est le 3
         rotor2 = ['J','V','I','U','B','H','T','C','D','Y','A','K','E','Q','Z','P','O','S','G','X','N','R','M','W','F','L']
-    if var6list[5] == '1':
+    if var6list[5] == '1':  # si rotor en position 3 est le 1
         rotor3 = ['J','G','D','Q','O','X','U','S','C','A','M','I','F','R','V','T','P','N','E','W','K','B','L','Z','Y','H']
-    elif var6list[5] == '2':
+    elif var6list[5] == '2':  # si rotor en position 3 est le 2
         rotor3 = ['N','T','Z','P','S','F','B','O','K','M','W','R','C','J','D','I','V','L','A','E','Y','U','X','H','G','Q']
-    elif var6list[5] == '3':
+    elif var6list[5] == '3':  # si rotor en position 3 est le 3
         rotor3 = ['J','V','I','U','B','H','T','C','D','Y','A','K','E','Q','Z','P','O','S','G','X','N','R','M','W','F','L']
 
     alphabetList = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',' ']
