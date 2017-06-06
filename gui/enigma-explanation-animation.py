@@ -65,18 +65,18 @@ i1,i2,i3 = 0,0,0
 animateIncremente = 35
 def animate(line, sens):
     global animateIncremente
-    coord = canvas.coords(line)
+    coord = canvas.coords(line)  # récupère les coordonnées de la ligne (x0,y0,x1,y1)
     coord = [int(x) for x in coord]
-    if sens:
+    if sens:  # sens de gauche à droite
         canvas.create_line(coord[0],coord[1],coord[0],coord[1],fill="green", width="5")
-        for elt in range(coord[0], coord[2]+1,1):
-            canvas.coords(str(animateIncremente), coord[0],coord[1], elt, coord[1])
+        for elt in range(coord[0], coord[2]+1,1):  # boucle se répétant autant de fois que la longueur de la ligne en pixel
+            canvas.coords(str(animateIncremente), coord[0],coord[1], elt, coord[1])  # on met à jour les coordonnées de la ligne -> on la fait "grandir"
             time.sleep(int(speedVar.get())/100)
             canvas.update()
-    if not sens:
+    if not sens:  # sens de droite à gauche
         canvas.create_line(coord[2],coord[1],coord[2],coord[1],fill="green", width="5")
-        for elt in range(coord[2]-1, coord[0],-1):
-            canvas.coords(str(animateIncremente), coord[2],coord[1], elt, coord[1])
+        for elt in range(coord[2]-1, coord[0],-1):  # boucle se répétant autant de fois que la longueur de la ligne en pixel
+            canvas.coords(str(animateIncremente), coord[2],coord[1], elt, coord[1])  # on met à jour les coordonnées de la ligne -> on la fait "grandir"
             time.sleep(int(speedVar.get())/100)
             canvas.update()
     animateIncremente += 1
@@ -135,15 +135,6 @@ def codePath(event=None):
     nbRotation = 0
     alphabet = ["A", "B", "C", "D", "E", "F"]
     resultList = []
-    '''
-    def estValide(liste1):
-        if liste1 == []:
-            return False
-        for elt in liste1:
-            if alphabet.count(elt.upper()) < 1:
-                return False
-        return True
-    '''
     reflecList = [5,0,4,3,1,2]
 
     r1G = [3,5,2,0,4,1]
@@ -186,6 +177,9 @@ def codePath(event=None):
         resultList.append(alphabet[(g-1) % 6])
         print("ok")
         sortieLabelVar.set(resultList)
+        time.sleep(5)
+        effacerLignes()
+        time.sleep(2)
         if (nbRotation+1) % 1 == 0:
             rotate(liaisonsCanvas1)
             rotationRotor(r1G)
@@ -198,8 +192,6 @@ def codePath(event=None):
             rotate(liaisonsCanvas3)
             rotationRotor(r3G)
             rotationRotor(r3D)
-        time.sleep(2)
-        effacerLignes()
         time.sleep(2)
         nbRotation += 1
 
